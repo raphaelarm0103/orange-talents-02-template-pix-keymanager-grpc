@@ -1,6 +1,13 @@
 micronaut:
   application:
     name: desafioPix
+
+grpc:
+  server:
+    port: ${SERVER_PORT:50051}
+    keep-alive-time: 1h
+    max-inbound-message-size: 1024
+
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/pix

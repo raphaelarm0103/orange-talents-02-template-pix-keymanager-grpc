@@ -10,21 +10,22 @@ data class ClientItauResponse(
     val tipo: String,
     val instituicao: ClientInstituicaoResponse,
     val agencia: String,
-    val numeroConta: String,
+    val numero: String,
     val titular: ClientTitularResponse
 ) {
-
-    fun toModel(tipoConta: TipoConta, clienteId: String): ContaAssociada{
+    fun toModelItau(tipoConta: TipoConta, clienteId: String): ContaAssociada{
         return ContaAssociada(
             tipoConta = tipoConta,
             instituicao = instituicao.toModel(),
             agencia = agencia,
-            numeroConta = numeroConta,
+            numero = numero,
             titular = titular.toModel(clienteId)
         )
     }
 
+
 }
+
 data class ClientTitularResponse(
     val nome: String, val cpf: String)
  {

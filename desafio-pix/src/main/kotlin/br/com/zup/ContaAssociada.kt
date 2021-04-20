@@ -13,7 +13,7 @@ class ContaAssociada (
 
     val agencia: String,
 
-    val numeroConta: String,
+    val numero: String,
 
     @Embedded
     val titular: Titular,

@@ -9,10 +9,8 @@ import javax.persistence.*
 @Entity
 class NovaChavePix(
 
-    @Column(updatable = false)
-    val criadoEm: LocalDateTime = LocalDateTime.now(),
-
     @Enumerated(EnumType.STRING)
+    @Column(unique = true, updatable = false)
     val tipoChave: TipoChave,
 
     @Column(length = 77, unique = true)
@@ -24,5 +22,8 @@ class NovaChavePix(
     @Id
     @GeneratedValue
     var id: UUID? = null
+
+    @Column(updatable = false)
+    val criadoEm: LocalDateTime = LocalDateTime.now()
 }
 

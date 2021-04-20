@@ -5,7 +5,7 @@ import javax.persistence.Embeddable
 
 @Embeddable
 class Titular(
-    val titularId: UUID,
+    val titularId: UUID?,
     val nomeTitular: String,
     val cpf: String
 ) {

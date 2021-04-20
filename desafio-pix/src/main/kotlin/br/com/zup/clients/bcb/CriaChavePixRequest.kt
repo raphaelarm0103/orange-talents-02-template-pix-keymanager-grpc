@@ -22,7 +22,7 @@ data class CriaChavePixRequest(
                     titular = contaAssociada.instituicao.ispb,
                     agencia = contaAssociada.agencia,
                     tipoConta = toAccountType(contaAssociada.tipoConta),
-                    numeroConta = contaAssociada.numeroConta
+                    numeroConta = contaAssociada.numero
                 ), titular = Titular(
                     tipoPessoa = TipoPessoa.toType("CPF"),
                     nome = contaAssociada.titular.nomeTitular,
