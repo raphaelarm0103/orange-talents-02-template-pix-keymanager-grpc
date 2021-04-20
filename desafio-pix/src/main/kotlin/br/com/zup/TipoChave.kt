@@ -4,7 +4,7 @@ import io.micronaut.validation.validator.constraints.EmailValidator
 
 enum class TipoChave {
 
-    UNKNOWN_CHAVE {
+    CHAVE_DESCONHECIDA {
         override fun valida(chave: String?): Boolean {
             return false
         }
