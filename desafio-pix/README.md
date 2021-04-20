@@ -7,13 +7,9 @@
 
 ---
 
-## Feature hibernate-validator documentation
+## Feature testcontainers documentation
 
-- [Micronaut Hibernate Validator documentation](https://micronaut-projects.github.io/micronaut-hibernate-validator/latest/guide/index.html)
-
-## Feature hibernate-jpa documentation
-
-- [Micronaut Hibernate JPA documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#hibernate)
+- [https://www.testcontainers.org/](https://www.testcontainers.org/)
 
 ## Feature jdbc-hikari documentation
 
