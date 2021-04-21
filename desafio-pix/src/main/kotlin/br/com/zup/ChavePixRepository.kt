@@ -7,14 +7,10 @@ import java.util.*
 @Repository
 interface ChavePixRepository: JpaRepository<NovaChavePix, UUID> {
 
-
-
     fun existsByChave(chave: String?): Boolean
 
+    fun findByChave(chave: String): Optional<NovaChavePix>
 
-    fun findByContaAssociadaTitularCpf(cpf: String): Optional<NovaChavePix>
-
-     fun findByChave(chave: String?): Optional<NovaChavePix>
 
 
 }

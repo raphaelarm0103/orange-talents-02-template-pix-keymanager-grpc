@@ -26,7 +26,7 @@ class NovaChavePixService(@Inject val repository: ChavePixRepository,
 
         // 1 - Verifica se já existe a chave no banco
         if (repository.existsByChave(novaChavePixRequest.chave))
-            throw ChavePixExistenteException("Chave pix ${novaChavePixRequest.chave} já existente")
+            throw ChavePixExistenteException("Chave pix ${novaChavePixRequest.tipoChave}: ${novaChavePixRequest.chave} já existente")
 
         // 2 - Busca os dados no ERP do Itau
         val response = itauClient.buscarContaPorId(novaChavePixRequest.clienteId, novaChavePixRequest.tipoConta!!.name)
@@ -36,7 +36,7 @@ class NovaChavePixService(@Inject val repository: ChavePixRepository,
         // 3 - Verifica se o CPF já está cadastrado
         val novaChavePix: NovaChavePix = novaChavePixRequest.toModel(conta)
         if (novaChavePixRequest.tipoChave == TipoChave.CPF && repository.existsByChave(novaChavePix.contaAssociada.titular.cpf)) {
-            throw ChavePixExistenteException("Chave CPF já cadastrada")
+            throw IllegalArgumentException("Chave CPF já cadastrada")
         }
 
         // 4 - Salva a chave no banco

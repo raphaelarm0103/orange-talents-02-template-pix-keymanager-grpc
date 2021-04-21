@@ -4,6 +4,7 @@ import br.com.zup.ContaAssociada
 import br.com.zup.NovaChavePix
 import br.com.zup.TipoChave
 import br.com.zup.TipoConta
+import br.com.zup.validacoes.ValidPixKey
 import br.com.zup.validacoes.ValidUUID
 import io.micronaut.core.annotation.Introspected
 import java.util.*
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
 
 @Introspected
+@ValidPixKey
 data class NovaChavePixRequest(
 
     @ValidUUID
