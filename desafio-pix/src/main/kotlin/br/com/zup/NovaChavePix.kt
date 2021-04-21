@@ -11,6 +11,7 @@ import javax.persistence.*
 @ValidPixKey
 class NovaChavePix(
 
+
     @Enumerated(EnumType.STRING)
     @Column(unique = true, updatable = false)
     val tipoChave: TipoChave,
