@@ -1,5 +1,6 @@
 package br.com.zup
 
+import br.com.zup.validacoes.ValidPixKey
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
@@ -7,6 +8,7 @@ import javax.persistence.*
 
 
 @Entity
+@ValidPixKey
 class NovaChavePix(
 
     @Enumerated(EnumType.STRING)
