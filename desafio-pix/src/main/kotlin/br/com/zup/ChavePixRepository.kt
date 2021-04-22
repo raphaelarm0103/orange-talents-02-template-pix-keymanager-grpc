@@ -11,6 +11,8 @@ interface ChavePixRepository: JpaRepository<NovaChavePix, UUID> {
 
     fun findByChave(chave: String): Optional<NovaChavePix>
 
+    fun findByIdAndContaAssociadaTitularTitularId (fromString: UUID?, fromString1: UUID?): Optional<NovaChavePix>
+
 
 
 }

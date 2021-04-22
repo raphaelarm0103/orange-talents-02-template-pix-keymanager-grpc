@@ -10,6 +10,19 @@ service RegistraChavePixService {
   rpc send (RegistraChavePixRequest) returns (RegistraChavePixResponse) {}
 }
 
+service RemoveChavePixService{
+  rpc remove(RemoveChavePixRequest) returns (RemoveChavePixResponse) {}
+}
+
+message RemoveChavePixRequest{
+  string pixID =1;
+  string cliendId =2;
+}
+
+message RemoveChavePixResponse{
+  string mensagem = 1;
+}
+
 message RegistraChavePixRequest {
   string clienteId = 1;
   TipoChaveEnum tipoChaveEnum = 2;
