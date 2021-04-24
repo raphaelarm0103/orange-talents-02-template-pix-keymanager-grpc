@@ -19,5 +19,5 @@ datasources:
 jpa.default.properties.hibernate.hbm2ddl.auto: update
 
 
-itau.url: 'http://localhost:9091'
-bcb.url: 'http://localhost:8082'
+itau.url: 'http://localhost:9091/'
+bcb.url: 'http://localhost:8082/'

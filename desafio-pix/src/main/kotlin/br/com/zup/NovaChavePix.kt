@@ -1,5 +1,6 @@
 package br.com.zup
 
+import br.com.zup.clients.bcb.CreatePixKeyResponse
 import br.com.zup.validacoes.ValidPixKey
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -11,7 +12,6 @@ import javax.persistence.*
 @ValidPixKey
 class NovaChavePix(
 
-
     @Enumerated(EnumType.STRING)
     @Column(unique = true, updatable = false)
     val tipoChave: TipoChave,
@@ -22,6 +22,12 @@ class NovaChavePix(
     @Embedded
     val contaAssociada: ContaAssociada
 ){
+    fun atualizaChave(body: CreatePixKeyResponse?) {
+        if (tipoChave == TipoChave.ALEATORIA) {
+            this.chave = body!!.key
+        }
+    }
+
     @Id
     @GeneratedValue
     var id: UUID? = null

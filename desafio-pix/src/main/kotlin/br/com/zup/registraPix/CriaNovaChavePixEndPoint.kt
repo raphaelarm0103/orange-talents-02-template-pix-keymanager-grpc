@@ -11,18 +11,18 @@ import javax.inject.Singleton
 
 @Singleton
 @ErrorHandler
-class CriaNovaChavePixEndPoint(@Inject val service:NovaChavePixService ): RegistraChavePixServiceGrpc.RegistraChavePixServiceImplBase() {
+class CriaNovaChavePixEndPoint(@Inject private val service: NovaChavePixService ): RegistraChavePixServiceGrpc.RegistraChavePixServiceImplBase() {
 
-    override fun send(request: RegistraChavePixRequest,
-                      responseObserver: StreamObserver<RegistraChavePixResponse>) {
+    override fun send(request: RegistraChavePixRequest, responseObserver: StreamObserver<RegistraChavePixResponse>?) {
 
         val novaChavePixRequest = request.toRequest()
         val chaveCriada = service.registra(novaChavePixRequest)
 
-        responseObserver.onNext(RegistraChavePixResponse.newBuilder()
+        responseObserver?.onNext(RegistraChavePixResponse.newBuilder()
             .setPixId(chaveCriada.id.toString())
             .build())
-        responseObserver.onCompleted()
-
+        responseObserver?.onCompleted()
     }
+
+
 }
