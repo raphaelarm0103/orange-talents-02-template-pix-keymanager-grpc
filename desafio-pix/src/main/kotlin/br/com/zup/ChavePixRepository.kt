@@ -13,7 +13,7 @@ interface ChavePixRepository: JpaRepository<NovaChavePix, UUID> {
 
     fun findByIdAndContaAssociadaTitularTitularId (fromString: UUID?, fromString1: UUID?): Optional<NovaChavePix>
 
-    fun finAllByContaAssociadaTitularTitularId(titularId: UUID): Optional<NovaChavePix>
+    fun findAllByContaAssociadaTitularTitularId(titularId: UUID): List<NovaChavePix>
 
 
 }

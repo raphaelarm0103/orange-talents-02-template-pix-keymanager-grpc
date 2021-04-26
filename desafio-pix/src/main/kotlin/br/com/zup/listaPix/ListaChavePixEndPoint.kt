@@ -20,7 +20,7 @@ class ListaChavePixEndPoint(@Inject private val repository: ChavePixRepository):
         }
 
 
-        val chavesPorId = repository.finAllByContaAssociadaTitularTitularId(UUID.fromString(request.clienteId))
+        val chavesPorId = repository.findAllByContaAssociadaTitularTitularId(UUID.fromString(request.clienteId))
 
         val chavesResponse = chavesPorId.map {
             ListaChavePixResponse.ChavePixLista.newBuilder()
