@@ -40,10 +40,7 @@ sealed class Filtro {
             }
 
             return novaChavePix.toInfo()
-
-
         }
-
     }
 
 
