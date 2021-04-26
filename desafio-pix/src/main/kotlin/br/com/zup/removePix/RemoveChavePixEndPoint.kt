@@ -11,21 +11,23 @@ import javax.inject.Singleton
 
 @ErrorHandler
 @Singleton
-class RemoveChavePixEndPoint(@Inject val service: RemoveChavePixService):
+class RemoveChavePixEndPoint(@Inject val service: RemoveChavePixService) :
     RemoveChavePixServiceGrpc.RemoveChavePixServiceImplBase() {
 
-    override fun remove(request: RemoveChavePixRequest,
-                        responseObserver: StreamObserver<RemoveChavePixResponse>?) {
+    override fun remove(
+        request: RemoveChavePixRequest,
+        responseObserver: StreamObserver<RemoveChavePixResponse>?
+    ) {
 
+        service.remove(pixId = request.pixID, clienteId = request.cliendId)
 
-        service.remove(pixId = request.pixID, clienteId = request.cliendId )
-
-        responseObserver?.onNext(RemoveChavePixResponse.newBuilder()
-                            .setMensagem("Chave pix removida com sucesso")
-                            .build())
+        responseObserver?.onNext(
+            RemoveChavePixResponse.newBuilder()
+                .setMensagem("Chave pix removida com sucesso")
+                .build()
+        )
 
         responseObserver?.onCompleted()
-
 
     }
 }

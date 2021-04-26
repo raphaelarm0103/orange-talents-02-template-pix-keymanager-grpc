@@ -27,7 +27,7 @@ data class NovaChavePixRequest(
         return NovaChavePix(
             tipoChave = TipoChave.valueOf(this.tipoChave.name),
             chave = when(tipoChave){
-                TipoChave.ALEATORIA -> UUID.randomUUID().toString()
+                TipoChave.ALEATORIA -> ""
                 TipoChave.CPF -> contaAssociada.titular.cpf
                 else -> chave!!
             },
